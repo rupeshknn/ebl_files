@@ -1,0 +1,504 @@
+FLOW Blur-flow
+PROGRAM_VERSION BEAMER_Revision_Number_7.2.0_(46e4f9cc09),_Jul_18_2024,_06:40:16
+OPERATING_SYSTEM Microsoft_Windows_8
+LIB_COMMENT 
+SHOW_LIB_COMMENT false
+ ()
+NODE Import ()
+ID       = 1
+VERSION    = 2
+COMMENT    = Import
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = test3
+POSITION = 73, 44
+COLLECTFORLOOP = false
+DISABLED = false
+OUT_PORT[0] = 6, Transform, 0
+
+FILE_NAME = ..%5CPresentations%5Ctest3.gds
+FILE_TYPE = 1
+LAYERSET = *
+SINGLE_PATH_IMPORT = false
+ZERO_PATH_WIDTH = 0.000000
+BOXES_IMPORT = true
+KEEPELEMENTORDER = false
+FLATTENLAYOUT = false
+OVERLAP_AND_GAP_DETECTION = false
+OVERLAP_AND_GAP_DETECTION_MIN_SIZE = 0.000000
+LoadTextElements = false
+ConvertTextElementsToPolys = false
+CONVERTED_TEXT_SIZE = 1.000000
+IMPORT_SHAPE_CIRCLE = false
+IMPORT_SHAPE_RING = false
+IMPORT_SHAPE_ARCBOW = false
+IMPORT_SHAPE_SECTOR = false
+IMPORT_SHAPE_ELLIPSE = false
+IMPORT_SHAPE_ROTATED_RECTANGLE = false
+IMPORT_SHAPE_PARALLELOGRAM = false
+MAXIMUM_CIRCLE_ERROR = 0.001000
+CURVE_DETECTION = false
+QAP_START
+FileName
+QAP_END
+
+ENDNODE
+
+NODE Loop ()
+ID       = 2
+VERSION    = 2
+COMMENT    = Loop
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Loop
+POSITION = 313, 148
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 11, Split, 0
+OUT_PORT[0] = 5, E-Beam, 0
+
+LOOP_VARIABLE  = %25blur%25
+LOOP_VALUE  = 0.01,true
+LOOP_VALUE  = 0.02,true
+LOOP_VALUE  = 0.03,true
+LOOP_VALUE  = 0.04,true
+LOOP_NOVALUE  = false
+
+
+LoopEndBehavior = Merge
+LoopMode = GenericLoop
+ENDNODE
+
+NODE EndLoop ()
+ID       = 3
+VERSION    = 2
+COMMENT    = End%20Loop
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = End%20Loop
+POSITION = 313, 428
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 4, Mapping, 0
+OUT_PORT[0] = 7, Transform%20(1), 0
+
+LOOP_NODE = 2, Loop
+ENDNODE
+
+NODE Mapping ()
+ID       = 4
+VERSION    = 2
+COMMENT    = Mapping
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Mapping
+POSITION = 359, 311
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 5, E-Beam, 0
+OUT_PORT[0] = 3, End%20Loop, 0
+QAP_START
+QAP_END
+
+
+LAYER_MAPPING = *%20%3A%20%25blur%25%20%3A%20
+ENDNODE
+
+NODE EBeam ()
+ID       = 5
+VERSION    = 2
+COMMENT    = E-Beam
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = E-Beam
+POSITION = 359, 241
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 2, Loop, 0
+OUT_PORT[0] = 4, Mapping, 0
+QAP_START
+QAP_END
+
+
+VERSION = 1
+
+
+LASERSIMULATION = false
+ALPHA = 0.005000
+BETA  = 30.000000
+ETA   = 0.600000
+MIDRANGE_1  = false
+GAMMA1  = 0.300000
+NUE1    = 0.010000
+MIDRANGE_2  = false
+GAMMA2  = 2.000000
+NUE2    = 0.010000
+BEAM_SIZE = %25blur%25
+BEAM_STEP_SIZE = 0.010000
+EXPOSURE_DOSE  = 1
+PSFType = Numeric
+PSF_FILENAME = .%5CSi_375um_PMMA_680nm_PMMA_170nm_100kV_z162nm.lpsf
+SIMULATE_SHOTS = false
+PIXEL_SIZE = 0.001
+THRESHOLD_EXTRACTION = true
+USE_WHOLE_LAYOUT = false
+PERIODIC_SIMULATIONX = true
+PERIODIC_SIMULATIONY = true
+METROLOGY_LAYER = *
+RESIST_TONE = negative
+DIFFUSION_LENGTH = 0.000000
+THRESHOLD = 100.000000
+REGION_ACTIVE = True
+REGION_NAME = R2
+START_X = -992.5500
+START_Y = 3317.9100
+STOP_X = -991.3450
+STOP_Y = 3319.0710
+TRY_1D_SIMULATION = false
+CREATE_INFORMATIONAL_DENSITY_IMAGE = false
+LINE_EXTENSION = 0.100000
+ETCH_BIAS = 0.000000
+BlurVariabiliy = false
+ThresholdForCDMeasure = 0.500000
+ELEMENT_SIZE = 1.000000
+BLUR_FACTOR = 1.000000
+ResistEffects = false
+ResistEffectInfluenceRange = 1.000000
+Density = 0.000000
+DevelopmentRate = 1.000000
+Density = 1.000000
+DevelopmentRate = 1.000000
+EtchEffects = false
+EtchInfluenceRange = 1.000000
+EtchInfluenceRangeParallel = 1.000000
+EtchDensity = 0.000000
+EtchRate = 1.000000
+EtchDensity = 1.000000
+EtchRate = 1.000000
+EtchEffectsOutside = false
+EtchInfluenceRangeOutside = 1.000000
+EtchInfluenceRangeOutsideParallel = 1.000000
+EtchDensityOutside = 0.000000
+EtchRateOutside = 1.000000
+EtchDensityOutside = 1.000000
+EtchRateOutside = 1.000000
+EtchEffects2 = false
+EtchInfluenceRange2 = 1.000000
+EtchDensity2 = 0.000000
+EtchRate2 = 1.000000
+EtchDensity2 = 1.000000
+EtchRate2 = 1.000000
+EtchEffects3 = false
+EtchInfluenceRange3 = 1.000000
+EtchDensity3 = 0.000000
+EtchRate3 = 1.000000
+EtchDensity3 = 1.000000
+EtchRate3 = 1.000000
+EtchEffectsDensity = false
+EtchInfluenceRangeDensity = 0.300000
+EtchDensityDependence = 0.000000
+EtchRateDensityDependence = 0.000000
+EtchDensityDependence = 1.000000
+EtchRateDensityDependence = 0.000000
+PSFArchiveIdentifierString = Substrate_Si_Thickness_700000_Energy_100_Layers__Resist_PMMA%20100%20nm_Z-Position_0.045_Electrons_2000000_Alpha_0_Beta_0_Eta_0_Gamma1_0_Nue1_0_Gamma2_0_Nue2_0_Simulator_mcTrace%201.0.0
+ENDNODE
+
+NODE Transform ()
+ID       = 6
+VERSION    = 2
+COMMENT    = Transform
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Transform
+POSITION = 72, 174
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 1, test3, 0
+QAP_START
+CoordinateOrigin
+ReflectX
+ReflectY
+Rotation
+ScaleX
+ScaleY
+ShiftX
+ShiftY
+QAP_END
+
+
+VERSION = 2
+ORIGIN = CENTER
+CenterMode = XY
+SCALE_X = 1.000000
+SCALE_Y = 1.000000
+ANGLE = 0.000000
+SHIFT = 0.000000, 0.000000
+ENDNODE
+
+NODE Transform ()
+ID       = 7
+VERSION    = 2
+COMMENT    = Transform
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Transform%20(1)
+POSITION = 313, 519
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 3, End%20Loop, 0
+QAP_START
+CoordinateOrigin
+ReflectX
+ReflectY
+Rotation
+ScaleX
+ScaleY
+ShiftX
+ShiftY
+QAP_END
+
+
+VERSION = 2
+ORIGIN = CENTER
+CenterMode = XY
+SCALE_X = 1.000000
+SCALE_Y = 1.000000
+ANGLE = 0.000000
+SHIFT = 0.000000, 0.000000
+ENDNODE
+
+NODE Import ()
+ID       = 8
+VERSION    = 2
+COMMENT    = Import
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Test%20Junction%20Single%20Die_top2rows
+POSITION = 313, 64
+COLLECTFORLOOP = false
+DISABLED = false
+OUT_PORT[0] = 11, Split, 0
+
+FILE_NAME = .%5Ctestjj_gds_files%5CTest%20Junction%20Single%20Die_top2rows.gds
+FILE_TYPE = 1
+LAYERSET = *
+SINGLE_PATH_IMPORT = false
+ZERO_PATH_WIDTH = 0.000000
+BOXES_IMPORT = true
+KEEPELEMENTORDER = false
+FLATTENLAYOUT = false
+OVERLAP_AND_GAP_DETECTION = false
+OVERLAP_AND_GAP_DETECTION_MIN_SIZE = 0.000000
+LoadTextElements = false
+ConvertTextElementsToPolys = false
+CONVERTED_TEXT_SIZE = 1.000000
+IMPORT_SHAPE_CIRCLE = false
+IMPORT_SHAPE_RING = false
+IMPORT_SHAPE_ARCBOW = false
+IMPORT_SHAPE_SECTOR = false
+IMPORT_SHAPE_ELLIPSE = false
+IMPORT_SHAPE_ROTATED_RECTANGLE = false
+IMPORT_SHAPE_PARALLELOGRAM = false
+MAXIMUM_CIRCLE_ERROR = 0.001000
+CURVE_DETECTION = false
+QAP_START
+FileName
+QAP_END
+
+ENDNODE
+
+NODE EndLoop ()
+ID       = 9
+VERSION    = 2
+COMMENT    = End%20Loop
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = End%20Loop%20(2)
+POSITION = 35, 268
+COLLECTFORLOOP = false
+DISABLED = false
+
+LOOP_NODE = 2, Loop
+ENDNODE
+
+NODE EndLoop ()
+ID       = 10
+VERSION    = 2
+COMMENT    = End%20Loop
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = End%20Loop%20(1)
+POSITION = 65, 378
+COLLECTFORLOOP = false
+DISABLED = false
+
+LOOP_NODE = 2, Loop
+ENDNODE
+
+NODE Split ()
+ID       = 11
+VERSION    = 2
+LABEL    = Split
+POSITION = 352, 101
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 8, Test%20Junction%20Single%20Die_top2rows, 0
+OUT_PORT[0] = 2, Loop, 0
+OUT_PORT[1] = 13, E-Beam%20(1), 0
+ENDNODE
+
+NODE Merge ()
+ID       = 12
+VERSION    = 2
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Merge
+POSITION = 235, 616
+COLLECTFORLOOP = false
+DISABLED = false
+QAP_START
+CoordinateOrigin
+QAP_END
+
+ORIGIN = LAYOUTORIGIN
+
+EXTENT_MODE = Maintain
+EXTENT_XMIN = 0.000000
+EXTENT_YMIN = 0.000000
+EXTENT_XMAX = 0.000000
+EXTENT_YMAX = 0.000000
+ENDNODE
+
+NODE EBeam ()
+ID       = 13
+VERSION    = 2
+COMMENT    = E-Beam
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = E-Beam%20(1)
+POSITION = 650, 224
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 11, Split, 1
+OUT_PORT[0] = 14, Transform%20(2), 0
+QAP_START
+QAP_END
+
+
+VERSION = 1
+
+
+LASERSIMULATION = false
+ALPHA = 0.005000
+BETA  = 30.000000
+ETA   = 0.600000
+MIDRANGE_1  = false
+GAMMA1  = 0.300000
+NUE1    = 0.010000
+MIDRANGE_2  = false
+GAMMA2  = 2.000000
+NUE2    = 0.010000
+BEAM_SIZE = 0.025
+BEAM_STEP_SIZE = 0.010000
+EXPOSURE_DOSE  = 1
+PSFType = Numeric
+PSF_FILENAME = .%5CSi_375um_PMMA_680nm_PMMA_170nm_100kV_z162nm.lpsf
+SIMULATE_SHOTS = false
+PIXEL_SIZE = 0.001
+THRESHOLD_EXTRACTION = false
+USE_WHOLE_LAYOUT = false
+PERIODIC_SIMULATIONX = true
+PERIODIC_SIMULATIONY = true
+METROLOGY_LAYER = 14(0)%2C%2015(0)
+RESIST_TONE = negative
+DIFFUSION_LENGTH = 0.000000
+THRESHOLD = 100.000000
+REGION_ACTIVE = True
+REGION_NAME = R1
+START_X = -992.4030
+START_Y = 3318.3400
+STOP_X = -991.4530
+STOP_Y = 3319.0590
+TRY_1D_SIMULATION = false
+CREATE_INFORMATIONAL_DENSITY_IMAGE = false
+LINE_EXTENSION = 0.100000
+ETCH_BIAS = 0.000000
+BlurVariabiliy = false
+ThresholdForCDMeasure = 0.500000
+ELEMENT_SIZE = 1.000000
+BLUR_FACTOR = 1.000000
+ResistEffects = false
+ResistEffectInfluenceRange = 1.000000
+Density = 0.000000
+DevelopmentRate = 1.000000
+Density = 1.000000
+DevelopmentRate = 1.000000
+EtchEffects = false
+EtchInfluenceRange = 1.000000
+EtchInfluenceRangeParallel = 1.000000
+EtchDensity = 0.000000
+EtchRate = 1.000000
+EtchDensity = 1.000000
+EtchRate = 1.000000
+EtchEffectsOutside = false
+EtchInfluenceRangeOutside = 1.000000
+EtchInfluenceRangeOutsideParallel = 1.000000
+EtchDensityOutside = 0.000000
+EtchRateOutside = 1.000000
+EtchDensityOutside = 1.000000
+EtchRateOutside = 1.000000
+EtchEffects2 = false
+EtchInfluenceRange2 = 1.000000
+EtchDensity2 = 0.000000
+EtchRate2 = 1.000000
+EtchDensity2 = 1.000000
+EtchRate2 = 1.000000
+EtchEffects3 = false
+EtchInfluenceRange3 = 1.000000
+EtchDensity3 = 0.000000
+EtchRate3 = 1.000000
+EtchDensity3 = 1.000000
+EtchRate3 = 1.000000
+EtchEffectsDensity = false
+EtchInfluenceRangeDensity = 0.300000
+EtchDensityDependence = 0.000000
+EtchRateDensityDependence = 0.000000
+EtchDensityDependence = 1.000000
+EtchRateDensityDependence = 0.000000
+PSFArchiveIdentifierString = Substrate_Si_Thickness_700000_Energy_100_Layers__Resist_PMMA%20100%20nm_Z-Position_0.045_Electrons_2000000_Alpha_0_Beta_0_Eta_0_Gamma1_0_Nue1_0_Gamma2_0_Nue2_0_Simulator_mcTrace%201.0.0
+ENDNODE
+
+NODE Transform ()
+ID       = 14
+VERSION    = 2
+COMMENT    = Transform
+SHOWCOMMENT    = false
+COMMENTSIZE = 100, 50
+LABEL    = Transform%20(2)
+POSITION = 650, 300
+COLLECTFORLOOP = false
+DISABLED = false
+IN_PORT[0] = 13, E-Beam%20(1), 0
+QAP_START
+CoordinateOrigin
+ReflectX
+ReflectY
+Rotation
+ScaleX
+ScaleY
+ShiftX
+ShiftY
+QAP_END
+
+
+VERSION = 2
+ORIGIN = CENTER
+CenterMode = XY
+SCALE_X = 1.000000
+SCALE_Y = 1.000000
+ANGLE = 0.000000
+SHIFT = 0.000000, 0.000000
+ENDNODE
+
+ENDFLOW
+
